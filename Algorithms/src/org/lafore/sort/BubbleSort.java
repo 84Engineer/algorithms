@@ -18,7 +18,7 @@ public class BubbleSort {
         bs.sort(unsorted);
         System.out.println("Sorted: " + display(unsorted));
     }
-
+    //O(N^2)
     public int[] sort(int[] array) {
 
         for (int out = array.length - 1; out > 0; out--) {
