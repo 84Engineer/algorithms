@@ -15,13 +15,19 @@ public class InsertionSort {
     
 
     public static void main(String[] args) {
-        int[] array = Helper.generateIntArray(0, 100, 20);
+        int[] array = Helper.generateIntArray(0, 100, 10);
         System.out.println("Unsorted: " + Helper.display(array));
         InsertionSort is = new InsertionSort();
         is.sort(array);
         System.out.println("Sorted: " + Helper.display(array));
     }
 
+    /*
+    *Speed is O(N^2) 
+    *The most efficient algorithm with all of speed O(N^2)
+    *working faster when data is paritally sorted
+    *Copying is faster than swap, so it's working faster than bubble and selection sort.
+    */
     public int[] sort(int[] array) {
         
         for(int out = 1; out < array.length; out++) {
