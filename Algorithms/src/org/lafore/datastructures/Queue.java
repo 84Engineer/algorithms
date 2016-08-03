@@ -10,30 +10,30 @@ package org.lafore.datastructures;
  * @author oslysenko
  */
 public class Queue<T> {
-    
+
     private Object[] elements;
     private int front = 0;
     private int rear = -1;
     private int items = 0;
-    
+
     public Queue(int size) {
         elements = new Object[size];
     }
-    
+
     public void insert(T element) {
-        if(items < elements.length) {
-            if(rear == elements.length - 1) {
+        if (items < elements.length) {
+            if (rear == elements.length - 1) {
                 rear = - 1;
             }
             elements[++rear] = element;
             items++;
         }
     }
-    
+
     public T remove() {
-        if(items > 0) {
+        if (items > 0) {
             T temp = (T) elements[front++];
-            if(front == elements.length) {
+            if (front == elements.length) {
                 front = 0;
             }
             items--;
@@ -41,6 +41,29 @@ public class Queue<T> {
         }
         return null;
     }
+
+    public T peek() {
+        if (items > 0) {
+            return (T) elements[front];
+        }
+        return null;
+    }
     
     
+    //Testing queue
+    public static void main(String[] args) {
+        Queue<Integer> io = new Queue(5);
+        io.insert(1);
+        io.insert(2);
+        io.insert(3);
+        
+        System.out.println(io.peek());
+        System.out.println(io.peek());
+        System.out.println(io.remove());
+        System.out.println(io.remove());
+        System.out.println(io.remove());
+        System.out.println(io.remove());
+        
+    }
+
 }
