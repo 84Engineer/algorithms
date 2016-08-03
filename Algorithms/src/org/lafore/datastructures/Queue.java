@@ -53,17 +53,26 @@ public class Queue<T> {
     //Testing queue
     public static void main(String[] args) {
         Queue<Integer> io = new Queue(5);
-        io.insert(1);
-        io.insert(2);
-        io.insert(3);
         
-        System.out.println(io.peek());
-        System.out.println(io.peek());
-        System.out.println(io.remove());
-        System.out.println(io.remove());
-        System.out.println(io.remove());
-        System.out.println(io.remove());
+        for(int i = 0; i <= 5; i++) {
+            System.out.println("Inserting " + i);
+            io.insert(i);
+        }
         
+        io.remove();
+        io.remove();
+        io.remove();
+        
+        for(int i = 0; i <= 5; i++) {
+            System.out.println("Inserting " + i);
+            io.insert(i);
+        }
+        
+        
+        while(io.peek() != null) {
+            System.out.println("Removing " + io.remove());
+        }
+                
     }
 
 }
