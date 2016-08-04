@@ -73,7 +73,8 @@ public class LinkedList<T> {
 
         while (!ll.isEmpty()) {
             System.out.print("Deleted: ");  
-            ll.deleteFirst().displayLink();
+            LinkedList.Link list = ll.deleteFirst();
+            list.displayLink();
             System.out.println("");
         }
         
