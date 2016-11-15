@@ -15,7 +15,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
 
-        result = new int[]{5, 2, 6, 1, 7, 3, 4, 0};
+        result = new int[]{5, 2, 14, 6, 1, 7, 13, 3, 4, 0, 11, 9, 8, 10, 15, 12};
         display(result);
         sort();
         display(result);
