@@ -15,7 +15,7 @@ public class SortCompare {
 
     public static void main(String[] args) {
 
-        int size = 1_000_000;
+        int size = 1_0_000;
         int tempArr[] = new int[size];
 
         for (int i = 0; i < size; i++) {
@@ -54,14 +54,22 @@ public class SortCompare {
         end = System.currentTimeMillis();
         duration = end - start;
         System.out.println("Selection sort time: " + duration);
-        
+
         result = tempArr;
 
         start = System.currentTimeMillis();
         mergeSort();
         end = System.currentTimeMillis();
         duration = end - start;
-        System.out.println("Merge sort time: " + duration);        
+        System.out.println("Merge sort time: " + duration);
+
+        result = tempArr;
+
+        start = System.currentTimeMillis();
+        quickSort();
+        end = System.currentTimeMillis();
+        duration = end - start;
+        System.out.println("Quick sort time: " + duration);
 
     }
 
@@ -183,6 +191,46 @@ public class SortCompare {
             result[lowerIndex + i] = tempArray[i];
         }
 
+    }
+
+    private static void quickSort() {
+        performSort(0, result.length - 1);
+    }
+
+    private static void performSort(int left, int right) {
+        if (right - left <= 0) {
+            return;
+        } else {
+            int pivot = result[right];
+            int partition = partition(left, right, pivot);
+            performSort(left, partition - 1);
+            performSort(partition + 1, right);
+        }
+    }
+
+    private static int partition(int left, int right, int pivot) {
+        int leftIdx = left - 1;
+        int rightIdx = right;
+
+        while (true) {
+            while (result[++leftIdx] < pivot) {
+            }
+            while (rightIdx > 0 && result[--rightIdx] > pivot) {
+            }
+            if (leftIdx >= rightIdx) {
+                break;
+            } else {
+                swap(leftIdx, rightIdx);
+            }
+        }
+        swap(leftIdx, right);
+        return leftIdx;
+    }
+
+    private static void swap(int left, int right) {
+        int temp = result[left];
+        result[left] = result[right];
+        result[right] = temp;
     }
 
 }
